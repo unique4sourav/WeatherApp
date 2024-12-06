@@ -12,7 +12,7 @@ import CoreLocation
 
 final class DashboardViewModel: ObservableObject {
     private let locationManager = LocationManager()
-    private let requestManager = RequestManager()
+    private let requestManager = RequestManager(parser: DataParser(keyDecodingStrategy: .convertFromSnakeCase))
     
     private var cancellables: Set<AnyCancellable> = []
     

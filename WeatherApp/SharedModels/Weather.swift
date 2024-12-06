@@ -26,8 +26,8 @@ extension Weather: Decodable {
         
         enum MainKeys: String, CodingKey {
             case temp
-            case tempMin = "temp_min"
-            case tempMax = "temp_max"
+            case tempMin// = "temp_min"
+            case tempMax// = "temp_max"
             case humidity
         }
         
