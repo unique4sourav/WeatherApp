@@ -7,7 +7,7 @@
 
 import Foundation
 
-class PreviewContent {
+final class PreviewContent {
     private init() { }
     
     static let shared = PreviewContent()

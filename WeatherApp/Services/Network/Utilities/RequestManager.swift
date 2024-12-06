@@ -7,7 +7,7 @@
 
 import Foundation
 
-class RequestManager: RequestManagerProtocol {
+final class RequestManager: RequestManagerProtocol {
     let apiManager: APIManagerProtocol
     let parser: DataParserProtocol
     

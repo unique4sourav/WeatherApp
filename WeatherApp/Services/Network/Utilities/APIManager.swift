@@ -7,7 +7,7 @@
 
 import Foundation
 
-class APIManager: APIManagerProtocol {
+final class APIManager: APIManagerProtocol {
     private let urlSession: URLSession
     
     init(urlSession: URLSession = URLSession.shared) {

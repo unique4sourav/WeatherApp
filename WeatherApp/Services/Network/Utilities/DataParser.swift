@@ -7,7 +7,7 @@
 
 import Foundation
 
-class DataParser: DataParserProtocol {
+final class DataParser: DataParserProtocol {
     private var jsonDecoder: JSONDecoder
     private(set) var keyDecodingStrategy: JSONDecoder.KeyDecodingStrategy
     
