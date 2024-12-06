@@ -18,24 +18,32 @@ final class DashboardViewModel: ObservableObject {
     
     @Published var currentPlaceWeather: Weather?
     @Published var searchLocation: String = ""
-    @Published var isLocationPermissionGiven: Bool = false
-    @Published var shouldAskForLocationPermission = false
     @Published var shouldShowErrorAlert: Bool = false
     
     private var currentLocation: CLLocation? = nil
     private(set) var errorMessage: String = ""
     
     
+    @Published var locationPermissionDenied: Bool = false
+    @Published var locationPermissionRestricted: Bool = false
+    @Published var locationPermissionGiven: Bool = false
+    
     init() {
         locationManager.$authorizationStatus
-            .map { $0 == .notDetermined }
-            .assign(to: &$shouldAskForLocationPermission)
+            .map { $0 == .denied}
+            .assign(to: &$locationPermissionDenied)
+        
+        locationManager.$authorizationStatus
+            .map { $0 == .restricted }
+            .assign(to: &$locationPermissionRestricted)
         
         locationManager.$authorizationStatus
             .map { $0 == .authorizedAlways || $0 == .authorizedWhenInUse }
-            .assign(to: &$isLocationPermissionGiven)
+            .assign(to: &$locationPermissionGiven)
         
-        $isLocationPermissionGiven.sink { [weak self] givenPermission in
+        
+        $locationPermissionGiven
+            .sink { [weak self] givenPermission in
             guard let self else { return }
             
             if givenPermission {
@@ -83,20 +91,12 @@ final class DashboardViewModel: ObservableObject {
             
         }
     }
-    
-    func fetchWeatherOf(latitude: Double, longitude: Double) {
-        Task {
-            // TODO: - Handle the error
-            let weather: Weather? = try? await self.requestManager
-                .perform(OpenWeatherRequest.getCurrentWeatherFor(latitude: latitude, longitude: longitude))
-            await MainActor.run {
-                self.currentPlaceWeather = weather
-            }
+
+    func checkLocationPermission() {
+        if locationManager.authorizationStatus == nil ||
+            locationManager.authorizationStatus == .notDetermined {
+            locationManager.requestPermission()
         }
-    }
-    
-    func askForLocationPermission() {
-        locationManager.requestPermission()
     }
     
     func acknowledgeError() {

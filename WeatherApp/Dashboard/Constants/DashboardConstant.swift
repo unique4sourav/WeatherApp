@@ -15,6 +15,7 @@ struct DashboardConstant {
     static let currentLocatiom = "Current Location"
     static let enableLocationPermission = "Enable Location Permission"
     static let locationPermissionDenied = "Location permission was denied."
+    static let locationPermissionRestricted = "Location access is restricted."
     
     struct SearchBar {
         private init() { }

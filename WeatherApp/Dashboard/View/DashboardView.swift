@@ -14,9 +14,20 @@ struct DashboardView: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                locationPermissionView
+                if viewModel.locationPermissionRestricted {
+                    Label(DashboardConstant.locationPermissionRestricted,
+                          systemImage: SharedConstant.SFSymbol.locationPermissionDeniedArrow)
+                }
                 
-                currentLocationWeatherView
+                if viewModel.locationPermissionDenied {
+                    Label(DashboardConstant.locationPermissionDenied,
+                          systemImage: SharedConstant.SFSymbol.locationPermissionDeniedArrow)
+                }
+                
+                if let currentWeather = viewModel.currentPlaceWeather {
+                    CurrentLocationWeatherView(weather: currentWeather)
+                    Spacer()
+                }
             }
             .padding()
         }
@@ -25,7 +36,7 @@ struct DashboardView: View {
             prompt: Text(DashboardConstant.SearchBar.prompt)
         )
         .onAppear {
-            viewModel.askForLocationPermission()
+            viewModel.checkLocationPermission()
         }
         .alert(Text(DashboardConstant.Error.alertTitle),
                isPresented: $viewModel.shouldShowErrorAlert, actions: {
@@ -33,7 +44,6 @@ struct DashboardView: View {
                 viewModel.acknowledgeError()
             }
         }, message: {
-            // TODO: - Introduce a error instead of error string
             Text(viewModel.errorMessage)
         })
         
@@ -45,33 +55,3 @@ struct DashboardView: View {
 }
 
 
-// MARK: - View Components
-private extension DashboardView {
-    
-    var currentLocationWeatherView: some View {
-        VStack {
-            if let currentWeather = viewModel.currentPlaceWeather {
-                CurrentLocationWeatherView(weather: currentWeather)
-                Spacer()
-            }
-        }
-    }
-    
-    var locationPermissionView: some View {
-        VStack {
-            if !viewModel.isLocationPermissionGiven {
-                if viewModel.shouldAskForLocationPermission {
-                    Button(DashboardConstant.enableLocationPermission,
-                           systemImage: SharedConstant.SFSymbol.locationArrow) {
-                        viewModel.askForLocationPermission()
-                    }
-                }
-                else {
-                    Label(DashboardConstant.locationPermissionDenied,
-                          systemImage: SharedConstant.SFSymbol.locationPermissionDeniedArrow)
-                }
-            }
-        }
-    }
-    
-}
