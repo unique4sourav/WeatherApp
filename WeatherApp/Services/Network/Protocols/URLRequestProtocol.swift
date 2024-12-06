@@ -17,3 +17,42 @@ protocol URLRequestProtocol {
     
     func createURLRequest() throws -> URLRequest
 }
+
+extension URLRequestProtocol {
+    func createURLRequest() throws -> URLRequest {
+        var components = URLComponents()
+        components.scheme = OpenWeatherMapAPIConstant.shared.scheme
+        components.host = OpenWeatherMapAPIConstant.shared.host
+        components.path = path
+        
+        
+        if !urlParams.isEmpty {
+            components.queryItems = urlParams.map { URLQueryItem(name: $0, value: $1) }
+        }
+        
+        guard let url = components.url else { throw NetworkError.invalidURL }
+        
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = requestType.rawValue
+        
+        if !headers.isEmpty {
+            urlRequest.allHTTPHeaderFields = headers
+        }
+        
+        if authorization != .notNeeded {
+            switch authorization {
+            case .needed(let field, let value):
+                urlRequest.setValue(value, forHTTPHeaderField: field)
+                
+            case .notNeeded:
+                break
+            }
+        }
+        
+        if !params.isEmpty {
+            urlRequest.httpBody = try JSONSerialization.data(withJSONObject: params)
+        }
+        print("urlRequest" + String(describing: urlRequest))
+        return urlRequest
+    }
+}
