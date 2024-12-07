@@ -8,8 +8,9 @@
 import CoreLocation
 import SwiftUI
 
-final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
+final class LocationManager: NSObject, ObservableObject, LocationManagerProtocol {
     private let locationManager = CLLocationManager()
+    
     @Published var location: CLLocation?
     @Published var authorizationStatus: CLAuthorizationStatus?
     
@@ -30,6 +31,9 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
         locationManager.stopUpdatingLocation()
     }
     
+}
+
+extension LocationManager: CLLocationManagerDelegate {
     // TODO: - Check if we could we use @MainActor here
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         DispatchQueue.main.async {
