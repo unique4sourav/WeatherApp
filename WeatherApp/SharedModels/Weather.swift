@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Weather {
+struct Weather: WeatherProtocol {
     let place: String
     let currentTemperature: Double
     let lowestTemperature: Double
@@ -26,8 +26,8 @@ extension Weather: Decodable {
         
         enum MainKeys: String, CodingKey {
             case temp
-            case tempMin// = "temp_min"
-            case tempMax// = "temp_max"
+            case tempMin
+            case tempMax
             case humidity
         }
         
