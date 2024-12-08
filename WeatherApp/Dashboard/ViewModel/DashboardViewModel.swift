@@ -9,11 +9,11 @@ import Foundation
 import SwiftUI
 import Combine
 import CoreLocation
+import DependencyInjection
 
 final class DashboardViewModel: ObservableObject {
-    private let locationManager = LocationManager()
-    private let weatherService = WeatherService(requestManager: RequestManager(
-        parser: DataParser(keyDecodingStrategy: .convertFromSnakeCase)))
+    @Injected var locationManager: LocationManager
+    @Injected var weatherService: WeatherService
     
     private var cancellables: Set<AnyCancellable> = []
     
