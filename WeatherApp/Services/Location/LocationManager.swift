@@ -34,21 +34,21 @@ final class LocationManager: NSObject, ObservableObject, LocationManagerProtocol
 }
 
 extension LocationManager: CLLocationManagerDelegate {
-    // TODO: - Check if we could we use @MainActor here
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        DispatchQueue.main.async {
-            self.authorizationStatus = status
+    nonisolated func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        MainActor.assumeIsolated { self.authorizationStatus = status }
+    }
+    
+    nonisolated func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        MainActor.assumeIsolated {
+            print("Current location: \n\(String(describing: locations.last))")
+            self.location = locations.last
+            
+            // For an weather app we only require significant location change update.
+            self.locationManager.distanceFilter = 5_000
         }
     }
     
-    // TODO: - Check if we could we use @MainActor here
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        DispatchQueue.main.async {
-            self.location = locations.first
-        }
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+    nonisolated func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Location error: \(error.localizedDescription)")
     }
 }

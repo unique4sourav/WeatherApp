@@ -11,6 +11,7 @@ import Combine
 import CoreLocation
 import DependencyInjection
 
+@MainActor
 final class DashboardViewModel: ObservableObject {
     @Injected var locationManager: LocationManager
     @Injected var weatherService: WeatherService
@@ -54,12 +55,6 @@ final class DashboardViewModel: ObservableObject {
         
         locationManager.$location
             .compactMap{ $0 }
-            .filter({ [weak self] fetchedLocation in
-                guard let self else { return false }
-                guard let currentLocation else { return true}
-                /// will fetch weather only if the displacement is more than equal to 50 km
-                return fetchedLocation.distance(from: currentLocation) >= 50_000
-            })
             .sink { [weak self] location in
                 guard let self else { return }
                 // print("Received value: \(String(describing: location))")

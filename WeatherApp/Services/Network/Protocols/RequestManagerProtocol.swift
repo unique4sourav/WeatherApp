@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol RequestManagerProtocol {
+protocol RequestManagerProtocol: Sendable {
     func perform<T: Decodable>(_ request: URLRequestProtocol) async throws -> T
 }

@@ -8,6 +8,7 @@
 import Foundation
 import CoreLocation
 
+@MainActor
 protocol LocationManagerProtocol {
     var location: CLLocation? { get }
     var authorizationStatus: CLAuthorizationStatus? { get }

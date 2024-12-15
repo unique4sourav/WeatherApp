@@ -8,8 +8,8 @@
 import Foundation
 
 final class DataParser: DataParserProtocol {
-    private var jsonDecoder: JSONDecoder
-    private(set) var keyDecodingStrategy: JSONDecoder.KeyDecodingStrategy
+    private let jsonDecoder: JSONDecoder
+    let keyDecodingStrategy: JSONDecoder.KeyDecodingStrategy
     
     init(jsonDecoder: JSONDecoder = JSONDecoder(),
          keyDecodingStrategy: JSONDecoder.KeyDecodingStrategy = .useDefaultKeys) {
