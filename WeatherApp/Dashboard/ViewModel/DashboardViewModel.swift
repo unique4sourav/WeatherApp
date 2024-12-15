@@ -45,13 +45,13 @@ final class DashboardViewModel: ObservableObject {
         
         $locationPermissionGiven
             .sink { [weak self] givenPermission in
-            guard let self else { return }
-            
-            if givenPermission {
-                self.locationManager.startUpdatingLocation()
+                guard let self else { return }
+                
+                if givenPermission {
+                    self.locationManager.startUpdatingLocation()
+                }
             }
-        }
-        .store(in: &cancellables)
+            .store(in: &cancellables)
         
         locationManager.$location
             .compactMap{ $0 }
@@ -72,20 +72,16 @@ final class DashboardViewModel: ObservableObject {
         Task {
             do {
                 let weather: Weather = try await self.weatherService.getWeather(latitude: latitude, longitude: longitude)
-                await MainActor.run {
-                    self.currentPlaceWeather = weather
-                }
+                self.currentPlaceWeather = weather
             }
             catch let error {
-                await MainActor.run {
-                    self.errorMessage = error.localizedDescription
-                    self.shouldShowErrorAlert = true
-                }
+                self.errorMessage = error.localizedDescription
+                self.shouldShowErrorAlert = true
             }
             
         }
     }
-
+    
     func checkLocationPermission() {
         if locationManager.authorizationStatus == nil ||
             locationManager.authorizationStatus == .notDetermined {
