@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol APIManagerProtocol {
+protocol APIManagerProtocol: Sendable {
     func perform(_ request: URLRequestProtocol) async throws -> Data
 }
