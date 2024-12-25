@@ -20,7 +20,7 @@ final class RequestManager: RequestManagerProtocol {
     func perform<T>(_ request: any URLRequestProtocol) async throws -> T where T : Decodable {
         let data = try await apiManager.perform(request)
         let stringResponse = String(data: data, encoding: .utf8)
-        print("stringResponse" + String(describing: stringResponse))
+        print("\nstringResponse:\n" + String(describing: stringResponse))
         let decoded: T = try parser.parse(from: data)
         return decoded
     }

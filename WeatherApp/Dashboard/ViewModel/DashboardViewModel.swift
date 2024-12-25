@@ -9,10 +9,11 @@ import Foundation
 import SwiftUI
 import Combine
 import CoreLocation
+import DependencyInjection
 
 final class DashboardViewModel: ObservableObject {
-    private let locationManager = LocationManager()
-    private let requestManager = RequestManager(parser: DataParser(keyDecodingStrategy: .convertFromSnakeCase))
+    @Injected var locationManager: LocationManager
+    @Injected var weatherService: WeatherService
     
     private var cancellables: Set<AnyCancellable> = []
     
@@ -22,7 +23,6 @@ final class DashboardViewModel: ObservableObject {
     
     private var currentLocation: CLLocation? = nil
     private(set) var errorMessage: String = ""
-    
     
     @Published var locationPermissionDenied: Bool = false
     @Published var locationPermissionRestricted: Bool = false
@@ -76,8 +76,7 @@ final class DashboardViewModel: ObservableObject {
     func fetchWeatherOfCurrentLocationWith(latitude: Double, longitude: Double) {
         Task {
             do {
-                let weather: Weather = try await self.requestManager
-                    .perform(OpenWeatherRequest.getCurrentWeatherFor(latitude: latitude, longitude: longitude))
+                let weather: Weather = try await self.weatherService.getWeather(latitude: latitude, longitude: longitude)
                 await MainActor.run {
                     self.currentPlaceWeather = weather
                 }

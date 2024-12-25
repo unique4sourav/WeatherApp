@@ -52,7 +52,7 @@ extension URLRequestProtocol {
         if !params.isEmpty {
             urlRequest.httpBody = try JSONSerialization.data(withJSONObject: params)
         }
-        print("urlRequest" + String(describing: urlRequest))
+        print("\nurlRequest:\n" + String(describing: urlRequest))
         return urlRequest
     }
 }

@@ -11,5 +11,5 @@ A SwiftUI-based weather application.
 [✅] SwiftUI  
 [  ] Swift 6 Concurrency (`async/await`)  
 [  ] Sendable  
-[  ] Dependency Injection using property wrapper.  
+[✅] Dependency Injection using property wrapper.  
 [  ] Using @StateObject & @ObservedObject and then migrating to @Observable  
