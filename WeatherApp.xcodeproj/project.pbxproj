@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C5846A7F2D1DBD3F0046523E /* Constants in Frameworks */ = {isa = PBXBuildFile; productRef = C5846A7E2D1DBD3F0046523E /* Constants */; };
 		C5DFFDF42D06307E0058FA27 /* DependencyInjection in Frameworks */ = {isa = PBXBuildFile; productRef = C5DFFDF32D06307E0058FA27 /* DependencyInjection */; };
 		C5DFFE072D0634FA0058FA27 /* DependencyInjection in Frameworks */ = {isa = PBXBuildFile; productRef = C5DFFE062D0634FA0058FA27 /* DependencyInjection */; };
 /* End PBXBuildFile section */
@@ -29,6 +30,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C5DFFDF42D06307E0058FA27 /* DependencyInjection in Frameworks */,
+				C5846A7F2D1DBD3F0046523E /* Constants in Frameworks */,
 				C5DFFE072D0634FA0058FA27 /* DependencyInjection in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -74,6 +76,7 @@
 			packageProductDependencies = (
 				C5DFFDF32D06307E0058FA27 /* DependencyInjection */,
 				C5DFFE062D0634FA0058FA27 /* DependencyInjection */,
+				C5846A7E2D1DBD3F0046523E /* Constants */,
 			);
 			productName = WeatherApp;
 			productReference = C56E97E12D00C2D0006CDB08 /* WeatherApp.app */;
@@ -105,6 +108,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				C5DFFE052D0634FA0058FA27 /* XCLocalSwiftPackageReference "../DependencyInjection" */,
+				C5846A7D2D1DBD3F0046523E /* XCRemoteSwiftPackageReference "StructBasedConstantsMacro" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = C56E97E22D00C2D0006CDB08 /* Products */;
@@ -350,7 +354,23 @@
 		};
 /* End XCLocalSwiftPackageReference section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		C5846A7D2D1DBD3F0046523E /* XCRemoteSwiftPackageReference "StructBasedConstantsMacro" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/unique4sourav/StructBasedConstantsMacro.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
+		C5846A7E2D1DBD3F0046523E /* Constants */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C5846A7D2D1DBD3F0046523E /* XCRemoteSwiftPackageReference "StructBasedConstantsMacro" */;
+			productName = Constants;
+		};
 		C5DFFDF32D06307E0058FA27 /* DependencyInjection */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = DependencyInjection;
