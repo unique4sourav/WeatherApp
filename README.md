@@ -12,4 +12,5 @@ A SwiftUI-based weather application.
 [✅] Swift 6 Concurrency  
 [✅] Sendable  
 [✅] Dependency Injection using property wrapper.  
+[✅] Add app-wide constants using Constants macro created by myself.  
 [  ] Using @StateObject & @ObservedObject and then migrating to @Observable  
