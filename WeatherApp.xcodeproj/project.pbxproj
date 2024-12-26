@@ -7,9 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C550F77B2D1DE9E1000E30F1 /* DependencyInjection in Frameworks */ = {isa = PBXBuildFile; productRef = C550F77A2D1DE9E1000E30F1 /* DependencyInjection */; };
 		C5846A7F2D1DBD3F0046523E /* Constants in Frameworks */ = {isa = PBXBuildFile; productRef = C5846A7E2D1DBD3F0046523E /* Constants */; };
-		C5DFFDF42D06307E0058FA27 /* DependencyInjection in Frameworks */ = {isa = PBXBuildFile; productRef = C5DFFDF32D06307E0058FA27 /* DependencyInjection */; };
-		C5DFFE072D0634FA0058FA27 /* DependencyInjection in Frameworks */ = {isa = PBXBuildFile; productRef = C5DFFE062D0634FA0058FA27 /* DependencyInjection */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,9 +28,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5DFFDF42D06307E0058FA27 /* DependencyInjection in Frameworks */,
 				C5846A7F2D1DBD3F0046523E /* Constants in Frameworks */,
-				C5DFFE072D0634FA0058FA27 /* DependencyInjection in Frameworks */,
+				C550F77B2D1DE9E1000E30F1 /* DependencyInjection in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +75,7 @@
 				C5DFFDF32D06307E0058FA27 /* DependencyInjection */,
 				C5DFFE062D0634FA0058FA27 /* DependencyInjection */,
 				C5846A7E2D1DBD3F0046523E /* Constants */,
+				C550F77A2D1DE9E1000E30F1 /* DependencyInjection */,
 			);
 			productName = WeatherApp;
 			productReference = C56E97E12D00C2D0006CDB08 /* WeatherApp.app */;
@@ -107,8 +106,8 @@
 			mainGroup = C56E97D82D00C2D0006CDB08;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				C5DFFE052D0634FA0058FA27 /* XCLocalSwiftPackageReference "../DependencyInjection" */,
 				C5846A7D2D1DBD3F0046523E /* XCRemoteSwiftPackageReference "StructBasedConstantsMacro" */,
+				C550F7792D1DE9E1000E30F1 /* XCRemoteSwiftPackageReference "DependencyInjection" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = C56E97E22D00C2D0006CDB08 /* Products */;
@@ -347,14 +346,15 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCLocalSwiftPackageReference section */
-		C5DFFE052D0634FA0058FA27 /* XCLocalSwiftPackageReference "../DependencyInjection" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = ../DependencyInjection;
-		};
-/* End XCLocalSwiftPackageReference section */
-
 /* Begin XCRemoteSwiftPackageReference section */
+		C550F7792D1DE9E1000E30F1 /* XCRemoteSwiftPackageReference "DependencyInjection" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/unique4sourav/DependencyInjection.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		C5846A7D2D1DBD3F0046523E /* XCRemoteSwiftPackageReference "StructBasedConstantsMacro" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/unique4sourav/StructBasedConstantsMacro.git";
@@ -366,6 +366,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C550F77A2D1DE9E1000E30F1 /* DependencyInjection */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C550F7792D1DE9E1000E30F1 /* XCRemoteSwiftPackageReference "DependencyInjection" */;
+			productName = DependencyInjection;
+		};
 		C5846A7E2D1DBD3F0046523E /* Constants */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C5846A7D2D1DBD3F0046523E /* XCRemoteSwiftPackageReference "StructBasedConstantsMacro" */;
