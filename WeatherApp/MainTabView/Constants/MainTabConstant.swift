@@ -6,14 +6,13 @@
 //
 
 import Foundation
+import Constants
 
 struct MainTabConstant {
-    private init() { }
-    
-    struct TabName {
-        private init() { }
-        
-        static let dashboard = "Weather Dashboard"
-        static let bookmark = "Bookmarks"
-    }
+    #Constants([
+        "TabName": [
+            "dashboard": "Weather Dashboard",
+            "bookmark": "Bookmarks"
+        ]
+    ])
 }
