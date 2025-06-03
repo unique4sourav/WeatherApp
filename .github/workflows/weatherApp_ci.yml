@@ -19,11 +19,6 @@ jobs:
         with:
           ruby-version: 3.2
 
-      - name: Install dependencies
-        run: |
-          gem install bundler
-          bundle install
-
       - name: Build app
         run: |
           xcodebuild clean build \
