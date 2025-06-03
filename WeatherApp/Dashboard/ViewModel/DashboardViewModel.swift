@@ -31,16 +31,13 @@ final class DashboardViewModel: ObservableObject {
     
     init() {
         locationManager.$authorizationStatus
-            .map { $0 == .denied}
-            .assign(to: &$locationPermissionDenied)
-        
-        locationManager.$authorizationStatus
-            .map { $0 == .restricted }
-            .assign(to: &$locationPermissionRestricted)
-        
-        locationManager.$authorizationStatus
-            .map { $0 == .authorizedAlways || $0 == .authorizedWhenInUse }
-            .assign(to: &$locationPermissionGiven)
+            .sink { [weak self] status in
+                self?.locationPermissionDenied = (status == .denied)
+                self?.locationPermissionRestricted = (status == .restricted)
+                self?.locationPermissionGiven =
+                (status == .authorizedAlways || status == .authorizedWhenInUse)
+            }
+            .store(in: &cancellables)
         
         
         $locationPermissionGiven
