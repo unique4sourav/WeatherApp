@@ -35,4 +35,5 @@ jobs:
           -sdk iphonesimulator \
           -configuration Release \
           CODE_SIGN_IDENTITY="" \
-          CODE_SIGNING_REQUIRED=NO
+          CODE_SIGNING_REQUIRED=NO \
+          SWIFT_ENABLE_EXPERIMENTAL_MACROS=YES
