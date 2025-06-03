@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C550F77B2D1DE9E1000E30F1 /* DependencyInjection in Frameworks */ = {isa = PBXBuildFile; productRef = C550F77A2D1DE9E1000E30F1 /* DependencyInjection */; };
-		C5846A7F2D1DBD3F0046523E /* Constants in Frameworks */ = {isa = PBXBuildFile; productRef = C5846A7E2D1DBD3F0046523E /* Constants */; };
+		C5ED765B2DEF1B3C0037D7DB /* DependencyInjection in Frameworks */ = {isa = PBXBuildFile; productRef = C5ED765A2DEF1B3C0037D7DB /* DependencyInjection */; };
+		C5ED765E2DEF1B590037D7DB /* Constants in Frameworks */ = {isa = PBXBuildFile; productRef = C5ED765D2DEF1B590037D7DB /* Constants */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,8 +28,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5846A7F2D1DBD3F0046523E /* Constants in Frameworks */,
-				C550F77B2D1DE9E1000E30F1 /* DependencyInjection in Frameworks */,
+				C5ED765E2DEF1B590037D7DB /* Constants in Frameworks */,
+				C5ED765B2DEF1B3C0037D7DB /* DependencyInjection in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,8 +74,8 @@
 			packageProductDependencies = (
 				C5DFFDF32D06307E0058FA27 /* DependencyInjection */,
 				C5DFFE062D0634FA0058FA27 /* DependencyInjection */,
-				C5846A7E2D1DBD3F0046523E /* Constants */,
-				C550F77A2D1DE9E1000E30F1 /* DependencyInjection */,
+				C5ED765A2DEF1B3C0037D7DB /* DependencyInjection */,
+				C5ED765D2DEF1B590037D7DB /* Constants */,
 			);
 			productName = WeatherApp;
 			productReference = C56E97E12D00C2D0006CDB08 /* WeatherApp.app */;
@@ -106,8 +106,8 @@
 			mainGroup = C56E97D82D00C2D0006CDB08;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				C5846A7D2D1DBD3F0046523E /* XCRemoteSwiftPackageReference "StructBasedConstantsMacro" */,
-				C550F7792D1DE9E1000E30F1 /* XCRemoteSwiftPackageReference "DependencyInjection" */,
+				C5ED76592DEF1B3C0037D7DB /* XCRemoteSwiftPackageReference "DependencyInjection" */,
+				C5ED765C2DEF1B590037D7DB /* XCRemoteSwiftPackageReference "StructBasedConstantsMacro" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = C56E97E22D00C2D0006CDB08 /* Products */;
@@ -347,7 +347,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		C550F7792D1DE9E1000E30F1 /* XCRemoteSwiftPackageReference "DependencyInjection" */ = {
+		C5ED76592DEF1B3C0037D7DB /* XCRemoteSwiftPackageReference "DependencyInjection" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/unique4sourav/DependencyInjection.git";
 			requirement = {
@@ -355,7 +355,7 @@
 				kind = branch;
 			};
 		};
-		C5846A7D2D1DBD3F0046523E /* XCRemoteSwiftPackageReference "StructBasedConstantsMacro" */ = {
+		C5ED765C2DEF1B590037D7DB /* XCRemoteSwiftPackageReference "StructBasedConstantsMacro" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/unique4sourav/StructBasedConstantsMacro.git";
 			requirement = {
@@ -366,16 +366,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		C550F77A2D1DE9E1000E30F1 /* DependencyInjection */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C550F7792D1DE9E1000E30F1 /* XCRemoteSwiftPackageReference "DependencyInjection" */;
-			productName = DependencyInjection;
-		};
-		C5846A7E2D1DBD3F0046523E /* Constants */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C5846A7D2D1DBD3F0046523E /* XCRemoteSwiftPackageReference "StructBasedConstantsMacro" */;
-			productName = Constants;
-		};
 		C5DFFDF32D06307E0058FA27 /* DependencyInjection */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = DependencyInjection;
@@ -383,6 +373,16 @@
 		C5DFFE062D0634FA0058FA27 /* DependencyInjection */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = DependencyInjection;
+		};
+		C5ED765A2DEF1B3C0037D7DB /* DependencyInjection */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C5ED76592DEF1B3C0037D7DB /* XCRemoteSwiftPackageReference "DependencyInjection" */;
+			productName = DependencyInjection;
+		};
+		C5ED765D2DEF1B590037D7DB /* Constants */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C5ED765C2DEF1B590037D7DB /* XCRemoteSwiftPackageReference "StructBasedConstantsMacro" */;
+			productName = Constants;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
