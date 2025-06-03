@@ -11,20 +11,20 @@ jobs:
     runs-on: macos-latest
 
     steps:
-  - name: Checkout code
-    uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-  - name: Set up Ruby
-    uses: ruby/setup-ruby@v1
-    with:
-      ruby-version: 3.2
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.2
 
-  - name: Install dependencies
-    run: |
-      gem install bundler
-      bundle install
+      - name: Install dependencies
+        run: |
+          gem install bundler
+          bundle install
 
-  - name: Build app
+      - name: Build app
     run: |
       xcodebuild clean build \
       -workspace WeatherApp.xcworkspace \
