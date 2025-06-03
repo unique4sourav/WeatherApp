@@ -68,6 +68,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				C5ED766A2DEF2C160037D7DB /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				C56E97E32D00C2D0006CDB08 /* WeatherApp */,
@@ -141,6 +142,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C5ED766A2DEF2C160037D7DB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = C5ED76692DEF2C160037D7DB /* Constants */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		C56E97ED2D00C2D1006CDB08 /* Debug */ = {
@@ -393,6 +401,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C5ED76622DEF24B20037D7DB /* XCRemoteSwiftPackageReference "StructBasedConstantsMacro" */;
 			productName = ConstantsClient;
+		};
+		C5ED76692DEF2C160037D7DB /* Constants */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C5ED76622DEF24B20037D7DB /* XCRemoteSwiftPackageReference "StructBasedConstantsMacro" */;
+			productName = Constants;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
