@@ -11,24 +11,24 @@ jobs:
     runs-on: macos-latest
 
     steps:
-    -name: Checkout code
+  - name: Checkout code
     uses: actions/checkout@v3
 
-    -name: Set up Ruby
+  - name: Set up Ruby
     uses: ruby/setup-ruby@v1
     with:
       ruby-version: 3.2
 
-    -name: Install dependencies
+  - name: Install dependencies
     run: |
       gem install bundler
       bundle install
 
-    -name: Build app
+  - name: Build app
     run: |
       xcodebuild clean build \
       -workspace WeatherApp.xcworkspace \
       -scheme WeatherApp \
-      - sdk iphones \
-      - configuration Release \
-      CODE_SIGN_IDENTITY="" CODE_SIGN_REQUIRED=NO
+      -sdk iphonesimulator \
+      -configuration Release \
+      CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
