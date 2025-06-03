@@ -22,7 +22,7 @@ jobs:
       - name: Build app
         run: |
           xcodebuild clean build \
-          -workspace WeatherApp.xcworkspace \
+          -workspace WeatherApp.xcodeproj \
           -scheme WeatherApp \
           -sdk iphonesimulator \
           -configuration Release \
