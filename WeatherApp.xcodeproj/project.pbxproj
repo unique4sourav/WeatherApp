@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		C5ED765B2DEF1B3C0037D7DB /* DependencyInjection in Frameworks */ = {isa = PBXBuildFile; productRef = C5ED765A2DEF1B3C0037D7DB /* DependencyInjection */; };
-		C5ED765E2DEF1B590037D7DB /* Constants in Frameworks */ = {isa = PBXBuildFile; productRef = C5ED765D2DEF1B590037D7DB /* Constants */; };
+		C5ED76642DEF24B20037D7DB /* Constants in Frameworks */ = {isa = PBXBuildFile; productRef = C5ED76632DEF24B20037D7DB /* Constants */; };
+		C5ED76662DEF24B20037D7DB /* ConstantsClient in Frameworks */ = {isa = PBXBuildFile; productRef = C5ED76652DEF24B20037D7DB /* ConstantsClient */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,8 +29,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5ED765E2DEF1B590037D7DB /* Constants in Frameworks */,
+				C5ED76642DEF24B20037D7DB /* Constants in Frameworks */,
 				C5ED765B2DEF1B3C0037D7DB /* DependencyInjection in Frameworks */,
+				C5ED76662DEF24B20037D7DB /* ConstantsClient in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,7 +77,8 @@
 				C5DFFDF32D06307E0058FA27 /* DependencyInjection */,
 				C5DFFE062D0634FA0058FA27 /* DependencyInjection */,
 				C5ED765A2DEF1B3C0037D7DB /* DependencyInjection */,
-				C5ED765D2DEF1B590037D7DB /* Constants */,
+				C5ED76632DEF24B20037D7DB /* Constants */,
+				C5ED76652DEF24B20037D7DB /* ConstantsClient */,
 			);
 			productName = WeatherApp;
 			productReference = C56E97E12D00C2D0006CDB08 /* WeatherApp.app */;
@@ -107,7 +110,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				C5ED76592DEF1B3C0037D7DB /* XCRemoteSwiftPackageReference "DependencyInjection" */,
-				C5ED765C2DEF1B590037D7DB /* XCRemoteSwiftPackageReference "StructBasedConstantsMacro" */,
+				C5ED76622DEF24B20037D7DB /* XCRemoteSwiftPackageReference "StructBasedConstantsMacro" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = C56E97E22D00C2D0006CDB08 /* Products */;
@@ -197,7 +200,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_SWIFT_FLAGS = "\"-Xfrontend -enable-experimental-macros\"";
+				OTHER_SWIFT_FLAGS = "";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -255,7 +258,7 @@
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				OTHER_SWIFT_FLAGS = "\"-Xfrontend -enable-experimental-macros\"";
+				OTHER_SWIFT_FLAGS = "";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_STRICT_CONCURRENCY = complete;
@@ -357,7 +360,7 @@
 				kind = branch;
 			};
 		};
-		C5ED765C2DEF1B590037D7DB /* XCRemoteSwiftPackageReference "StructBasedConstantsMacro" */ = {
+		C5ED76622DEF24B20037D7DB /* XCRemoteSwiftPackageReference "StructBasedConstantsMacro" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/unique4sourav/StructBasedConstantsMacro.git";
 			requirement = {
@@ -381,10 +384,15 @@
 			package = C5ED76592DEF1B3C0037D7DB /* XCRemoteSwiftPackageReference "DependencyInjection" */;
 			productName = DependencyInjection;
 		};
-		C5ED765D2DEF1B590037D7DB /* Constants */ = {
+		C5ED76632DEF24B20037D7DB /* Constants */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = C5ED765C2DEF1B590037D7DB /* XCRemoteSwiftPackageReference "StructBasedConstantsMacro" */;
+			package = C5ED76622DEF24B20037D7DB /* XCRemoteSwiftPackageReference "StructBasedConstantsMacro" */;
 			productName = Constants;
+		};
+		C5ED76652DEF24B20037D7DB /* ConstantsClient */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C5ED76622DEF24B20037D7DB /* XCRemoteSwiftPackageReference "StructBasedConstantsMacro" */;
+			productName = ConstantsClient;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
