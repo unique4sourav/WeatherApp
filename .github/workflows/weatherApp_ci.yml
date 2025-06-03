@@ -14,10 +14,18 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: List resolved Swift packages
+        run: cat WeatherApp.xcworkspace/xcshareddata/swiftpm/Package.resolved || echo "No resolved file found"
+
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.2
+
+      - name: Resolve Swift Packages
+        run: |
+          xcodebuild -resolvePackageDependencies \
+          -project WeatherApp.xcodeproj
 
       - name: Select Xcode version
         run: sudo xcode-select -s /Applications/Xcode_16.3.app
